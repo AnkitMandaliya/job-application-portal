@@ -183,8 +183,42 @@ Login and store JWT token
 
 Test protected APIs using Authorization header
 
+
+✅ Assignment Fulfillment
+
+
+✔ RESTful API developed using Node.js & Express
+
+
+✔ MongoDB Atlas integration with Mongoose
+
+
+✔ JWT-based authentication implemented
+
+
+✔ Resume upload using Multer
+
+
+✔ Job application and tracking functionality
+
+
+✔ Postman collection provided for API testing
+
+
+✔ Secure environment configuration
+
+
+✔ Application deployed on Render
+
+
+✔ Live API endpoint shared for evaluation
+
+
 👤 Author
+
+
 Ankit Mandaliya
+
 
 
 
