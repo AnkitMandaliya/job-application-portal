@@ -35,7 +35,7 @@ https://job-application-portal-1-7o4g.onrender.com
 
 ### 1️⃣ Clone Repository
 ```bash
-git clone <your-github-repo-url>
+git clone https://github.com/AnkitMandaliya/job-application-portal
 cd job-application-portal
 ```
 2️⃣ Install Dependencies
@@ -60,45 +60,94 @@ http://localhost:5000
 
 
 📬 API Endpoints
+
+
 🔐 Authentication
+
+
 (1) Register User
+
+
 POST /api/auth/register
+
+
 Request Body:
+
+
 {
   "name": "Ankit",
+
+  
   "email": "ankit@test.com",
+
+  
   "password": "Password@123"
 }
+
+
 (2) Login User
+
+
 POST /api/auth/login
+
+
 Response:
+
+
 {
   "token": "JWT_TOKEN"
 }
 
+
 💼 Jobs
+
+
 (3) Seed Sample Jobs
+
+
 POST /api/jobs/seed
+
+
 (4) Get All Jobs
+
+
 GET /api/jobs
 
 
 
 📄 Job Applications
+
+
 (5) Apply for Job
+
+
 POST /api/applications/apply
+
+
 Headers:
 Authorization: Bearer <JWT_TOKEN>
+
+
 Body (form-data):
+
+
 jobId  : <JOB_ID>
 resume : <PDF/DOC/DOCX file>
 
 
 (6) View My Applications
+
+
 GET /api/applications/my
+
+
 Headers:
 Authorization: Bearer <JWT_TOKEN>
+
+
 Sample Response:
+
+
 [
   {
     "job": {
@@ -109,16 +158,33 @@ Sample Response:
     "appliedAt": "2025-12-18T10:30:00.000Z"
   }
 ]
+
+
 📬 Postman Collection
+
+
 A Postman collection is included to test all API endpoints.
+
+
 postman/Job-Application-Portal.postman_collection.json
+
+
 How to Use
+
+
 Import the collection into Postman
+
+
 Set BASE_URL to the live or local URL
+
+
 Login and store JWT token
+
+
 Test protected APIs using Authorization header
 
 👤 Author
 Ankit Mandaliya
+
 
 
