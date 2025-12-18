@@ -57,6 +57,8 @@ npm run dev
 ```
 Server runs on:
 http://localhost:5000
+
+
 📬 API Endpoints
 🔐 Authentication
 (1) Register User
@@ -118,4 +120,5 @@ Test protected APIs using Authorization header
 
 👤 Author
 Ankit Mandaliya
+
 
