@@ -1,0 +1,244 @@
+{
+  "info": {
+    "_postman_id": "f7390adf-00cf-484e-aa72-2eb4659936cd",
+    "name": "Job Application Portal API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46228026"
+  },
+  "item": [
+    {
+      "name": "Register API",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Ankit\",\r\n  \"email\": \"ankit@test.com\",\r\n  \"password\": \"Password@123\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{BASE_URL}}/api/auth/register",
+          "host": ["{{BASE_URL}}"],
+          "path": ["api", "auth", "register"]
+        }
+      },
+      "response": [
+        {
+          "message": "User registered succesfully "
+        }
+      ]
+    },
+    {
+      "name": "Login API",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"ankit@test.com\",\r\n  \"password\": \"Password@123\"\r\n}\r\n"
+        },
+        "url": {
+          "raw": "{{BASE_URL}}/api/auth/login",
+          "host": ["{{BASE_URL}}"],
+          "path": ["api", "auth", "login"]
+        }
+      },
+      "response": [
+        {
+          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5NDNmMWVhYzVkN2I1M2JiMmM2NGUyNyIsImlhdCI6MTc2NjA2MDUzMiwiZXhwIjoxNzY2MTQ2OTMyfQ.MEKj8JI_ICqcq9BuHffpC-C_hnF2MIzfNtURRTrJuM0"
+        }
+      ]
+    },
+    {
+      "name": "Seed Jobs API",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"ankit@test.com\",\r\n  \"password\": \"Password@123\"\r\n}\r\n"
+        },
+        "url": {
+          "raw": "{{BASE_URL}}/api/jobs/seed",
+          "host": ["{{BASE_URL}}"],
+          "path": ["api", "jobs", "seed"]
+        }
+      },
+      "response": [
+        {
+          "message": "Sample Jobs Added"
+        }
+      ]
+    },
+    {
+      "name": "Get Jobs API",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"ankit@test.com\",\r\n  \"password\": \"Password@123\"\r\n}\r\n"
+        },
+        "url": {
+          "raw": "{{BASE_URL}}/api/jobs",
+          "host": ["{{BASE_URL}}"],
+          "path": ["api", "jobs"]
+        }
+      },
+      "response": [
+        {
+          "jobs": [
+            {
+              "_id": "6943f909eafaebe35ac072d3",
+              "title": "Node.js Developer",
+              "description": "REST APIs",
+              "location": "Remote",
+              "__v": 0
+            },
+            {
+              "_id": "6943f909eafaebe35ac072d4",
+              "title": "React Developer",
+              "description": "Frontend UI",
+              "location": "Ahmedabad",
+              "__v": 0
+            },
+            {
+              "_id": "694409c1c690b2e48c87a955",
+              "title": "Node.js Developer",
+              "description": "REST APIs",
+              "location": "Remote",
+              "__v": 0
+            },
+            {
+              "_id": "694409c1c690b2e48c87a956",
+              "title": "React Developer",
+              "description": "Frontend UI",
+              "location": "Ahmedabad",
+              "__v": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Apply Job API",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{TOKEN}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "jobId",
+              "value": "{{JOB_ID}}",
+              "type": "text"
+            },
+            {
+              "key": "resume",
+              "type": "file",
+              "src": "postman-cloud:///1f0dbf29-7063-43a0-9696-f12ad34a37fd"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{BASE_URL}}/api/applications/apply",
+          "host": ["{{BASE_URL}}"],
+          "path": ["api", "applications", "apply"]
+        }
+      },
+      "response": [
+        {
+          "user": "6943f1eac5d7b53bb2c64e27",
+          "job": "6943f909eafaebe35ac072d3",
+          "resume": "uploads\\resumes\\1766068445654resume.pdf",
+          "status": "Applied",
+          "_id": "694410dddf375c96c9547eaa",
+          "appliedAt": "2025-12-18T14:34:05.805Z",
+          "__v": 0
+        }
+      ]
+    },
+    {
+      "name": "My Applications API",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{TOKEN}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{BASE_URL}}/api/applications/my",
+          "host": ["{{BASE_URL}}"],
+          "path": ["api", "applications", "my"]
+        }
+      },
+      "response": [
+        [
+          {
+            "_id": "694410dddf375c96c9547eaa",
+            "user": "6943f1eac5d7b53bb2c64e27",
+            "job": {
+              "_id": "6943f909eafaebe35ac072d3",
+              "title": "Node.js Developer",
+              "location": "Remote"
+            },
+            "resume": "uploads\\resumes\\1766068445654resume.pdf",
+            "status": "Applied",
+            "appliedAt": "2025-12-18T14:34:05.805Z",
+            "__v": 0
+          }
+        ]
+      ]
+    }
+  ]
+}

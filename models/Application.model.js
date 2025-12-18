@@ -11,5 +11,4 @@ const applicationSchema = new mongoose.Schema({
   },
   appliedAt: { type: Date, default: Date.now }
 });
-
 export default mongoose.model("Application", applicationSchema);

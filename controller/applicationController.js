@@ -1,5 +1,6 @@
 import Application from "../models/Application.model.js"
-
+import mongoose from "mongoose";
+import Job from "../models/Job.model.js"
 export const applyJob = async (req, res) => {
     console.log("REQ.BODY =>", req.body);
   console.log("JOB ID =>", req.body.jobId);
@@ -26,8 +27,8 @@ export const applyJob = async (req, res) => {
   }
 
   const application = await Application.create({
-    user: req.user,
-    job: jobId,
+     user: new mongoose.Types.ObjectId(req.user),
+    job: new mongoose.Types.ObjectId(jobId),
     resume: req.file.path,
     status: "Applied"
   });
@@ -36,8 +37,17 @@ export const applyJob = async (req, res) => {
 };
 
 export const myApplications = async (req, res) => {
-  const applications = await Application.find({ user: req.user })
-    .populate("job", "title location");
+  console.log("🔥 API HIT");
+  console.log("USER ID:", req.user);
+
+  const applications = await Application.find({
+    user: new mongoose.Types.ObjectId(req.user)
+  }).populate("job","title location")
+
+  console.log("APPLICATION COUNT:", applications.length);
+
+  
 
   res.json(applications);
 };
+
