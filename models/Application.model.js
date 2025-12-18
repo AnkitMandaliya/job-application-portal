@@ -1,10 +1,15 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
-const applicationchema = new mongoose.Schema({
-    user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+const applicationSchema = new mongoose.Schema({
+  user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   job: { type: mongoose.Schema.Types.ObjectId, ref: "Job" },
   resume: String,
+  status: {
+    type: String,
+    enum: ["Applied", "Reviewed", "Rejected", "Accepted"],
+    default: "Applied"
+  },
   appliedAt: { type: Date, default: Date.now }
-})
+});
 
-export default mongoose.model("Application",applicationchema)
+export default mongoose.model("Application", applicationSchema);
