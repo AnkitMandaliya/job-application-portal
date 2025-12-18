@@ -1,7 +1,10 @@
 import Application from "../models/Application.model.js"
 
 export const applyJob = async (req, res) => {
+    console.log("REQ.BODY =>", req.body);
+  console.log("JOB ID =>", req.body.jobId);
   const { jobId } = req.body;
+
 
   if (!jobId) {
     return res.status(400).json({ message: "Job ID is required" });
