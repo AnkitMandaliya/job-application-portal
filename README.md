@@ -43,13 +43,26 @@ cd job-application-portal
 npm install
 ```
 3️⃣ Environment Variables
-Create a .env file using the sample below.
-.env
-env
-MONGO_URI=mongodb+srv://mandaliyaabhi901:1234@cluster0.w9exaf1.mongodb.net/jobportal?retryWrites=true&w=majority&appName=Cluster0
-JWT_SECRET=4f9c1a7e8b2d3f6a9e0c5b7d1a8f
+
+
+Create a .env file in the project root using the sample below.
+
+.env.example
+
+
 PORT=5000
-⚠️ The .env file is excluded from GitHub for security reasons.
+
+
+MONGO_URI=your_mongodb_connection_string
+
+
+JWT_SECRET=your_jwt_secret_key
+
+
+⚠️ Important:
+The actual .env file is excluded from GitHub for security reasons.
+Never commit real credentials to a public repository.
+
 
 ▶️ Run Application
 ```bash
@@ -218,6 +231,7 @@ Test protected APIs using Authorization header
 
 
 Ankit Mandaliya
+
 
 
 
