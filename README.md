@@ -80,6 +80,8 @@ POST /api/jobs/seed
 (4) Get All Jobs
 GET /api/jobs
 
+
+
 📄 Job Applications
 (5) Apply for Job
 POST /api/applications/apply
@@ -88,8 +90,9 @@ Authorization: Bearer <JWT_TOKEN>
 Body (form-data):
 jobId  : <JOB_ID>
 resume : <PDF/DOC/DOCX file>
-(6) View My Applications
 
+
+(6) View My Applications
 GET /api/applications/my
 Headers:
 Authorization: Bearer <JWT_TOKEN>
@@ -115,3 +118,4 @@ Test protected APIs using Authorization header
 
 👤 Author
 Ankit Mandaliya
+
